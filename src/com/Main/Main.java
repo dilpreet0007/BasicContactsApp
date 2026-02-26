@@ -9,6 +9,7 @@ import com.registration.UserRegistration;
 
 public class Main {
 	public static void main(String[] args) {
+		boolean loggedIn = false;
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.print("Enter your name: ");
@@ -39,9 +40,9 @@ public class Main {
 		
 		System.out.print("Enter your password: ");
 		String pass = sc.nextLine();
-		
 		if(x==1) {
 			if(BasicAuth.checkAuth(id, pass)) {
+				loggedIn=true;
 				System.out.println("Login Successfull!!");
 			}
 			else{
@@ -51,11 +52,49 @@ public class Main {
 			if(OAuth.checkAuth(id, pass)) {
 				Session session = new Session(OAuth.token);
 				session.createSession();
+				loggedIn =true;
 				System.out.println("Login Successfull!!");
 			}
 			else{
 				System.out.println("Login Failed!!");
 			}
+		}
+		
+		if(loggedIn) {
+			System.out.println("Options: Type");
+			System.out.println("1. Change Name");
+			System.out.println("2. Change UserName");
+			System.out.println("3. Change Password");
+			System.out.println("4. Change Email");
+			
+			System.out.println("Enter: ");
+			int a = sc.nextInt();
+			sc.nextLine();
+			
+			
+			if(a==1) {
+				System.out.print("Enter new Name: ");
+				String newName = sc.nextLine();
+				user.setName(newName);
+			}
+			else if(a==2) {
+				System.out.print("Enter new UserName: ");
+				String newUserName = sc.nextLine();
+				user.setUserName(newUserName);
+			}
+			else if(a==3) {
+				System.out.print("Enter new Password: ");
+				String newPass = sc.nextLine();
+				user.setPassword(newPass);
+			}
+			else if(a==4) {
+				System.out.print("Enter new Email: ");
+				String newEmail = sc.nextLine();
+				user.setEmail(newEmail);
+			}
+			
+			
+			user.printUserDetails();
 		}
 		
 	}
