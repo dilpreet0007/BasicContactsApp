@@ -2,9 +2,9 @@ package com.registration;
 
 public class UserRegistration {
 	private String name;
-	private String userName;
+	private static String userName;
 	private String email;
-	private String password;
+	private static String password;
 	private String type;
 	
 	public UserRegistration(String name, String userName, String email, String password, String type) {
@@ -23,7 +23,7 @@ public class UserRegistration {
 		this.name = name;
 	}
 
-	public String getUserName() {
+	public static String getUserName() {
 		return userName;
 	}
 
@@ -39,7 +39,7 @@ public class UserRegistration {
 		if(Operations.isValidEmail(email)) this.email = email;
 	}
 
-	public String getPassword() {
+	public static String getPassword() {
 		return password;
 	}
 
