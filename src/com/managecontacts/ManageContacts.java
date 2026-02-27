@@ -4,6 +4,7 @@ import java.util.*;
 
 /*
  *  Create Contact feature is added in this class
+ *  View Contact details is also added in this class
  */
 
 public class ManageContacts{
@@ -27,15 +28,18 @@ public class ManageContacts{
 		StoreDetails d = map.get(name);
 		map.remove(name);
 		map.put(newName, d);
+		ContactFileManager.saveContacts(map);
 	}
 	public static void updateContactPhoneNumber(String name,String newNumber) {
 		StoreDetails d = map.get(name);
 		d.setPhoneNumber(newNumber);
 		map.put(name, d);
+		ContactFileManager.saveContacts(map);
 	}
 	public static void updateContactEmail(String name,String newEmail) {
 		StoreDetails d = map.get(name);
 		d.setEmail(newEmail);
 		map.put(name, d);
+		ContactFileManager.saveContacts(map);
 	}
 }

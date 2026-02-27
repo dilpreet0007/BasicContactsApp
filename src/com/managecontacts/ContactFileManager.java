@@ -3,6 +3,10 @@ package com.managecontacts;
 import java.io.*;
 import java.util.*;
 
+/*
+ * Contact details is stored in File format using this class
+ */
+
 public class ContactFileManager {
     private static final String FILE_NAME = "contacts.txt";
 

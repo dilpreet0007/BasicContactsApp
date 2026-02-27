@@ -1,8 +1,10 @@
 package com.managecontacts;
 
-import java.io.Serializable;
+/*
+ * Stored the info of contacts in this class
+ */
 
-public class StoreDetails implements Serializable {
+public class StoreDetails {
     public static String phoneNumber;
     public static String email;
 

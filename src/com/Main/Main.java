@@ -83,6 +83,9 @@ public class Main {
 			System.out.println("4. Change Email");
 			System.out.println("5. Add Contact");
 			System.out.println("6. Contact List");
+			System.out.println("7. Update Contact List");
+			
+			
 			
 			System.out.println("Enter: ");
 			int a = sc.nextInt();
@@ -121,6 +124,29 @@ public class Main {
 			}
 			else if(a==6) {
 				ContactFileManager.printContacts();
+			}
+			else if(a==7) {
+				ManageContacts.addContact("David", "999900000", "david@com");
+				System.out.print("Enter 1 for name || 2 for number || 3 for email: ");
+				int b = sc.nextInt();
+				sc.nextLine();
+				System.out.print("Enter name of current contact: ");
+				String currName = sc.nextLine();
+				if(b==1) {
+					System.out.print("Enter new name of contact: ");
+					String newName = sc.nextLine();
+					ManageContacts.updateContactName(currName, newName);
+				}
+				else if(b==2) {
+					System.out.print("Enter new number of contact: ");
+					String newNum = sc.nextLine();
+					ManageContacts.updateContactPhoneNumber(currName, newNum);
+				}
+				else if(b==3) {
+					System.out.print("Enter new email of contact: ");
+					String newEmail = sc.nextLine();
+					ManageContacts.updateContactEmail(currName, newEmail);
+				}
 			}
 		}
 		
