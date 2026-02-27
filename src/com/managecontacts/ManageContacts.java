@@ -2,11 +2,16 @@ package com.managecontacts;
 
 import java.util.*;
 
+/*
+ *  Create Contact feature is added in this class
+ */
+
 public class ManageContacts{
 	public static HashMap<String,StoreDetails> map = new HashMap<>();
 	
 	public static void addContact(String name,String phoneNumber,String email) {
 		map.put(name, new StoreDetails(phoneNumber,email));
+		ContactFileManager.saveContacts(map);
 	}
 	
 	public static void deleteContact(String name) {

@@ -4,6 +4,10 @@ import com.registration.Operations;
 import com.registration.UserRegistration;
 
 public class OAuth {
+	
+	/* Authentication is done by using Oauth will also create a token 
+	   and a session for that existing token
+	 */
 	public static String username = UserRegistration.getUserName();
 	public static String pass = UserRegistration.getPassword();
 	public static String token = "";

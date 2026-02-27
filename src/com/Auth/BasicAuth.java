@@ -3,6 +3,10 @@ package com.Auth;
 import com.registration.Operations;
 import com.registration.UserRegistration;
 
+/*
+ * Basic Authentication is done using only your username and pass
+ */
+
 public class BasicAuth {
 	public static String username = UserRegistration.getUserName();
 	public static String pass = UserRegistration.getPassword();

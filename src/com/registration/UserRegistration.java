@@ -1,5 +1,10 @@
 package com.registration;
 
+/*
+ * User profile information is stored using objects getter and setters are also made 
+ * for any further modifications
+ */
+
 public class UserRegistration {
 	private String name;
 	private static String userName;

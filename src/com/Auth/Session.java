@@ -2,6 +2,10 @@ package com.Auth;
 
 import com.registration.UserRegistration;
 
+/*
+ * Session is made for a particular token
+ */
+
 public class Session {
 	public static String username = UserRegistration.getUserName();
 	static String token;

@@ -3,6 +3,10 @@ package com.registration;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/*
+ * validation and hashing is done in this class
+ */
+
 public class Operations {
 	
 	public static boolean isValidPassword(String password) {
