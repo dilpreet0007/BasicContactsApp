@@ -5,6 +5,7 @@ import java.util.*;
 import com.Auth.BasicAuth;
 import com.Auth.OAuth;
 import com.Auth.Session;
+import com.managecontacts.ManageContacts;
 import com.registration.UserRegistration;
 
 public class Main {
@@ -60,12 +61,15 @@ public class Main {
 			}
 		}
 		
+		
+		
 		if(loggedIn) {
 			System.out.println("Options: Type");
 			System.out.println("1. Change Name");
 			System.out.println("2. Change UserName");
 			System.out.println("3. Change Password");
 			System.out.println("4. Change Email");
+			System.out.println("5. Add Contact");
 			
 			System.out.println("Enter: ");
 			int a = sc.nextInt();
@@ -91,6 +95,17 @@ public class Main {
 				System.out.print("Enter new Email: ");
 				String newEmail = sc.nextLine();
 				user.setEmail(newEmail);
+			}
+			else if(a==5) {
+				System.out.print("Enter Contact Name: ");
+				String contactName = sc.nextLine();
+				System.out.print("Enter Contact Phone Number: ");
+				String contactNum = sc.nextLine();
+				System.out.print("Enter Contact Email: ");
+				String contactEmail = sc.nextLine();
+				ManageContacts.addContact(contactName, contactNum, contactEmail);
+				
+				System.out.println(ManageContacts.map.get(contactName).phoneNumber);
 			}
 			
 			
