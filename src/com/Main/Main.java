@@ -75,8 +75,9 @@ public class Main {
 			}
 		}
 				
-		if(loggedIn) {
+		while(loggedIn) {
 			System.out.println("Options: Type");
+			System.out.println("0. Logout");
 			System.out.println("1. Change Name");
 			System.out.println("2. Change UserName");
 			System.out.println("3. Change Password");
@@ -84,7 +85,7 @@ public class Main {
 			System.out.println("5. Add Contact");
 			System.out.println("6. Contact List");
 			System.out.println("7. Update Contact List");
-			
+			System.out.println("8. Delete a Contact");
 			
 			
 			System.out.println("Enter: ");
@@ -147,6 +148,16 @@ public class Main {
 					String newEmail = sc.nextLine();
 					ManageContacts.updateContactEmail(currName, newEmail);
 				}
+			}
+			else if(a==8) {
+				System.out.print("Enter name of contact you want to delete: ");
+				String n = sc.nextLine();
+				ManageContacts.deleteContact(n);
+			}
+			
+			else if(a==0) {
+				loggedIn = false;
+				break;
 			}
 		}
 		

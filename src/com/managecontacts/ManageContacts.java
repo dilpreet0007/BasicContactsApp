@@ -5,6 +5,7 @@ import java.util.*;
 /*
  *  Create Contact feature is added in this class
  *  View Contact details is also added in this class
+ *  Updating the contactDetails
  */
 
 public class ManageContacts{
@@ -17,6 +18,7 @@ public class ManageContacts{
 	
 	public static void deleteContact(String name) {
 		map.remove(name);
+		System.out.println(map);
 	}
 	
 	public static void getContact(String name) {
