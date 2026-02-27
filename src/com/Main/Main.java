@@ -86,6 +86,7 @@ public class Main {
 			System.out.println("6. Contact List");
 			System.out.println("7. Update Contact List");
 			System.out.println("8. Delete a Contact");
+			System.out.println("9. Filter using tag");
 			
 			
 			System.out.println("Enter: ");
@@ -120,14 +121,17 @@ public class Main {
 				String contactNum = sc.nextLine();
 				System.out.print("Enter Contact Email: ");
 				String contactEmail = sc.nextLine();
-				ManageContacts.addContact(contactName, contactNum, contactEmail);
+				System.out.print("Enter Contact Tag: ");
+				String contactTag = sc.nextLine();
+				ManageContacts.addContact(contactName, contactNum, contactEmail,contactTag);
 				
 			}
 			else if(a==6) {
+				System.out.println(ManageContacts.map);
 				ContactFileManager.printContacts();
 			}
 			else if(a==7) {
-				ManageContacts.addContact("David", "999900000", "david@com");
+				ManageContacts.addContact("David", "999900000", "david@com","Friend");
 				System.out.print("Enter 1 for name || 2 for number || 3 for email: ");
 				int b = sc.nextInt();
 				sc.nextLine();
@@ -153,6 +157,12 @@ public class Main {
 				System.out.print("Enter name of contact you want to delete: ");
 				String n = sc.nextLine();
 				ManageContacts.deleteContact(n);
+			}
+			else if(a==9) {
+				System.out.print("Enter tag: ");
+				String t = sc.nextLine();
+				
+				System.out.println(ManageContacts.tagMap.get(t));
 			}
 			
 			else if(a==0) {

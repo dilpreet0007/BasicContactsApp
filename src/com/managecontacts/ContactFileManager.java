@@ -31,8 +31,8 @@ public class ContactFileManager {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length == 3) {
-                    contacts.put(parts[0], new StoreDetails(parts[1], parts[2]));
+                if (parts.length == 4) {
+                    contacts.put(parts[0], new StoreDetails(parts[1], parts[2],parts[3]));
                 }
             }
         } catch (IOException e) {
