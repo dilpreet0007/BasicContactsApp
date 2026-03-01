@@ -9,13 +9,15 @@ import java.time.*;
  *  Delete Contact feature added to it
  *  Tags added in contacts
  *  search option is added in list
+ *  Filter by TAG/DATE/FREQCONTACTED
+ *  CUSTOM Tags
  */
 
 public class ManageContacts{
 	public static HashMap<String,StoreDetails> map = new HashMap<>();
 	public static HashMap<String,ArrayList<String>> tagMap = new HashMap<>();
 	public static HashMap<LocalDate,ArrayList<String>> dateAdded = new HashMap<>();
-	public static HashMap<String,StoreDetails> freqContacted = new HashMap<>();
+	public static HashSet<String> freqContacted = new HashSet<>();
 	
 	public static void addContact(String name,String phoneNumber,String email,String tag) {
 		LocalDate currentDate = LocalDate.now();
@@ -41,7 +43,7 @@ public class ManageContacts{
 	
 	public static void getContact(String name) {
 		StoreDetails d = map.get(name);
-		freqContacted.put(name,d);
+		
 		System.out.println(name + " " + d.phoneNumber + " " + d.email);
 	}
 	
@@ -65,6 +67,7 @@ public class ManageContacts{
 	}
 	
 	public static void search(String s) {
+		freqContacted.add(s);
 		for(String str : map.keySet()) {
 			if(str.equals(s)) {
 				System.out.println(str + " " + map.get(str));
