@@ -11,6 +11,7 @@ import java.time.*;
  *  search option is added in list
  *  Filter by TAG/DATE/FREQCONTACTED
  *  CUSTOM Tags
+ *  Multiple tags added
  */
 
 public class ManageContacts{
