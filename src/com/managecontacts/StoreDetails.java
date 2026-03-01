@@ -1,5 +1,6 @@
 package com.managecontacts;
 import java.time.*;
+import java.util.ArrayList;
 /*
  * Stored the info of contacts in this class
  */
@@ -7,10 +8,10 @@ import java.time.*;
 public class StoreDetails {
     public String phoneNumber;
     public String email;
-    public String tag;
+    public ArrayList<String> tag;
     public LocalDate date;
 
-    public StoreDetails(String phoneNumber, String email,String tag,LocalDate date) {
+    public StoreDetails(String phoneNumber, String email,ArrayList<String> tag,LocalDate date) {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.tag = tag;
@@ -25,7 +26,7 @@ public class StoreDetails {
         return email;
     }
     
-    public String getTag() {
+    public ArrayList<String> getTag() {
     	return tag;
     }
     public LocalDate getDate() {
@@ -38,10 +39,6 @@ public class StoreDetails {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	
-	public void setTag(String tag) {
-		this.tag = tag;
 	}
 
 	@Override

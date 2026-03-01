@@ -125,14 +125,15 @@ public class Main {
 				String contactEmail = sc.nextLine();
 				System.out.print("Enter Contact Tag: ");
 				String contactTag = sc.nextLine();
-				ManageContacts.addContact(contactName, contactNum, contactEmail,contactTag);
+				ArrayList<String> tag = new ArrayList<>(Arrays.asList(contactTag.split(",")));
+				ManageContacts.addContact(contactName, contactNum, contactEmail,tag);
 				
 			}
 			else if(a==6) {
 				System.out.println(ManageContacts.map);
 			}
 			else if(a==7) {
-				ManageContacts.addContact("David", "999900000", "david@com","Friend");
+				ManageContacts.addContact("David", "999900000", "david@com",new ArrayList<>(Arrays.asList("friend")));
 				System.out.print("Enter 1 for name || 2 for number || 3 for email: ");
 				int b = sc.nextInt();
 				sc.nextLine();

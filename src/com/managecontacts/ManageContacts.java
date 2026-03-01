@@ -19,14 +19,17 @@ public class ManageContacts{
 	public static HashMap<LocalDate,ArrayList<String>> dateAdded = new HashMap<>();
 	public static HashSet<String> freqContacted = new HashSet<>();
 	
-	public static void addContact(String name,String phoneNumber,String email,String tag) {
+	public static void addContact(String name,String phoneNumber,String email,ArrayList<String> tag) {
 		LocalDate currentDate = LocalDate.now();
 		StoreDetails d = new StoreDetails(phoneNumber,email,tag,currentDate);
 		map.put(name, d);
-		if(!tagMap.containsKey(tag)) {
-			tagMap.put(tag,new ArrayList<>());
+		for(String t : tag) {
+			if(!tagMap.containsKey(t)) {
+				tagMap.put(t,new ArrayList<>());
+			}
+			tagMap.get(t).add(name);
 		}
-		tagMap.get(tag).add(name);
+		
 		
 		if(!dateAdded.containsKey(currentDate)) {
 			dateAdded.put(currentDate,new ArrayList<>());
