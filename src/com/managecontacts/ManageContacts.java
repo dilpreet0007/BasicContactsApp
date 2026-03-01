@@ -1,7 +1,7 @@
 package com.managecontacts;
 
 import java.util.*;
-
+import java.time.*;
 /*
  *  Create Contact feature is added in this class
  *  View Contact details is also added in this class
@@ -14,15 +14,23 @@ import java.util.*;
 public class ManageContacts{
 	public static HashMap<String,StoreDetails> map = new HashMap<>();
 	public static HashMap<String,ArrayList<String>> tagMap = new HashMap<>();
+	public static HashMap<LocalDate,ArrayList<String>> dateAdded = new HashMap<>();
+	public static HashMap<String,StoreDetails> freqContacted = new HashMap<>();
 	
 	public static void addContact(String name,String phoneNumber,String email,String tag) {
-		StoreDetails d = new StoreDetails(phoneNumber,email,tag);
+		LocalDate currentDate = LocalDate.now();
+		StoreDetails d = new StoreDetails(phoneNumber,email,tag,currentDate);
 		map.put(name, d);
 		if(!tagMap.containsKey(tag)) {
 			tagMap.put(tag,new ArrayList<>());
 		}
 		tagMap.get(tag).add(name);
-		ContactFileManager.saveContacts(map);
+		
+		if(!dateAdded.containsKey(currentDate)) {
+			dateAdded.put(currentDate,new ArrayList<>());
+		}
+		dateAdded.get(currentDate).add(name);
+		
 	}
 	
 	public static void deleteContact(String name) {
@@ -33,6 +41,7 @@ public class ManageContacts{
 	
 	public static void getContact(String name) {
 		StoreDetails d = map.get(name);
+		freqContacted.put(name,d);
 		System.out.println(name + " " + d.phoneNumber + " " + d.email);
 	}
 	
@@ -41,21 +50,18 @@ public class ManageContacts{
 		StoreDetails d = map.get(name);
 		map.remove(name);
 		map.put(newName, d);
-		ContactFileManager.saveContacts(map);
 	}
 	public static void updateContactPhoneNumber(String name,String newNumber) {
 		if(!map.containsKey(name)) System.out.println("Contact not available in list");
 		StoreDetails d = map.get(name);
 		d.setPhoneNumber(newNumber);
 		map.put(name, d);
-		ContactFileManager.saveContacts(map);
 	}
 	public static void updateContactEmail(String name,String newEmail) {
 		if(!map.containsKey(name)) System.out.println("Contact not available in list");
 		StoreDetails d = map.get(name);
 		d.setEmail(newEmail);
 		map.put(name, d);
-		ContactFileManager.saveContacts(map);
 	}
 	
 	public static void search(String s) {

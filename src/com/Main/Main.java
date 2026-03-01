@@ -1,11 +1,11 @@
 package com.Main;
 
+import java.time.LocalDate;
 import java.util.*;
 
 import com.Auth.BasicAuth;
 import com.Auth.OAuth;
 import com.Auth.Session;
-import com.managecontacts.ContactFileManager;
 import com.managecontacts.ManageContacts;
 import com.managecontacts.StoreDetails;
 import com.registration.UserRegistration;
@@ -88,6 +88,7 @@ public class Main {
 			System.out.println(" 8. Delete a Contact");
 			System.out.println(" 9. Filter using tag");
 			System.out.println("10. Search Contact");
+			System.out.println("11. Filter By Tags/Date/FreqContacted");
 			
 			
 			System.out.println("Enter: ");
@@ -129,7 +130,6 @@ public class Main {
 			}
 			else if(a==6) {
 				System.out.println(ManageContacts.map);
-				ContactFileManager.printContacts();
 			}
 			else if(a==7) {
 				ManageContacts.addContact("David", "999900000", "david@com","Friend");
@@ -170,7 +170,23 @@ public class Main {
 				String input  = sc.nextLine();
 				ManageContacts.search(input);
 			}
-			
+			else if(a==11) {
+				System.out.print("Enter Tag/Date/FreqContacted: ");
+				String input  = sc.nextLine();
+				
+				if(input.equals("Tag")) {
+					System.out.print("Enter Tag: ");
+					String t = sc.nextLine();
+					System.out.println(ManageContacts.tagMap.get(t));
+				}
+				
+				else if(input.equals("Date")) {
+					System.out.print("Enter Tag: ");
+					String t = sc.nextLine();
+					System.out.println(ManageContacts.dateAdded.get(LocalDate.parse(t)));
+				}
+				else System.out.println(ManageContacts.freqContacted);
+			}
 			else if(a==0) {
 				loggedIn = false;
 				break;

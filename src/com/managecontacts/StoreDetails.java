@@ -1,5 +1,5 @@
 package com.managecontacts;
-
+import java.time.*;
 /*
  * Stored the info of contacts in this class
  */
@@ -8,11 +8,13 @@ public class StoreDetails {
     public String phoneNumber;
     public String email;
     public String tag;
+    public LocalDate date;
 
-    public StoreDetails(String phoneNumber, String email,String tag) {
+    public StoreDetails(String phoneNumber, String email,String tag,LocalDate date) {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.tag = tag;
+        this.date = date;
     }
 
     public String getPhoneNumber() {
@@ -25,6 +27,9 @@ public class StoreDetails {
     
     public String getTag() {
     	return tag;
+    }
+    public LocalDate getDate() {
+    	return date;
     }
 
     public void setPhoneNumber(String phoneNumber) {
@@ -44,9 +49,5 @@ public class StoreDetails {
         return phoneNumber + "," + email + "," +tag;
     }
 
-    public static StoreDetails fromString(String line) {
-        String[] parts = line.split(",");
-        return new StoreDetails(parts[0], parts[1],parts[2]);
-    }
 }
 
