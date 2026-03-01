@@ -5,9 +5,9 @@ package com.managecontacts;
  */
 
 public class StoreDetails {
-    public static String phoneNumber;
-    public static String email;
-    public static String tag;
+    public String phoneNumber;
+    public String email;
+    public String tag;
 
     public StoreDetails(String phoneNumber, String email,String tag) {
         this.phoneNumber = phoneNumber;
@@ -27,16 +27,16 @@ public class StoreDetails {
     	return tag;
     }
 
-    public static void setPhoneNumber(String phoneNumber) {
-		StoreDetails.phoneNumber = phoneNumber;
+    public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
-	public static void setEmail(String email) {
-		StoreDetails.email = email;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
-	public static void setTag(String tag) {
-		StoreDetails.tag = tag;
+	public void setTag(String tag) {
+		this.tag = tag;
 	}
 
 	@Override

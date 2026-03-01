@@ -77,16 +77,17 @@ public class Main {
 				
 		while(loggedIn) {
 			System.out.println("Options: Type");
-			System.out.println("0. Logout");
-			System.out.println("1. Change Name");
-			System.out.println("2. Change UserName");
-			System.out.println("3. Change Password");
-			System.out.println("4. Change Email");
-			System.out.println("5. Add Contact");
-			System.out.println("6. Contact List");
-			System.out.println("7. Update Contact List");
-			System.out.println("8. Delete a Contact");
-			System.out.println("9. Filter using tag");
+			System.out.println(" 0. Logout");
+			System.out.println(" 1. Change Name");
+			System.out.println(" 2. Change UserName");
+			System.out.println(" 3. Change Password");
+			System.out.println(" 4. Change Email");
+			System.out.println(" 5. Add Contact");
+			System.out.println(" 6. Contact List");
+			System.out.println(" 7. Update Contact List");
+			System.out.println(" 8. Delete a Contact");
+			System.out.println(" 9. Filter using tag");
+			System.out.println("10. Search Contact");
 			
 			
 			System.out.println("Enter: ");
@@ -163,6 +164,11 @@ public class Main {
 				String t = sc.nextLine();
 				
 				System.out.println(ManageContacts.tagMap.get(t));
+			}
+			else if(a==10) {
+				System.out.print("Enter Name/Number/Email/Tag: ");
+				String input  = sc.nextLine();
+				ManageContacts.search(input);
 			}
 			
 			else if(a==0) {

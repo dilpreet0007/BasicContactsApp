@@ -7,6 +7,8 @@ import java.util.*;
  *  View Contact details is also added in this class
  *  Updating the contactDetails
  *  Delete Contact feature added to it
+ *  Tags added in contacts
+ *  search option is added in list
  */
 
 public class ManageContacts{
@@ -14,7 +16,8 @@ public class ManageContacts{
 	public static HashMap<String,ArrayList<String>> tagMap = new HashMap<>();
 	
 	public static void addContact(String name,String phoneNumber,String email,String tag) {
-		map.put(name, new StoreDetails(phoneNumber,email,tag));
+		StoreDetails d = new StoreDetails(phoneNumber,email,tag);
+		map.put(name, d);
 		if(!tagMap.containsKey(tag)) {
 			tagMap.put(tag,new ArrayList<>());
 		}
@@ -53,5 +56,25 @@ public class ManageContacts{
 		d.setEmail(newEmail);
 		map.put(name, d);
 		ContactFileManager.saveContacts(map);
+	}
+	
+	public static void search(String s) {
+		for(String str : map.keySet()) {
+			if(str.equals(s)) {
+				System.out.println(str + " " + map.get(str));
+			}
+			else {
+				StoreDetails d = map.get(str);
+				if(s.equals(d.getPhoneNumber())) {
+					System.out.println(str + " " + map.get(str));
+				}
+				if(s.equals(d.getEmail())) {
+					System.out.println(str + " " + map.get(str));
+				}
+				if(s.equals(d.getTag())) {
+					System.out.println(str + " " + map.get(str));
+				}
+			}
+		}
 	}
 }
